@@ -465,7 +465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinCounter: 0
   playerUIPrefab: {fileID: 6743501708430393860, guid: 6bf58509b1e58ea4b8bdf3bfce81acdb, type: 3}
-  CoinPrefab: {fileID: 3114996422953456396, guid: 023c3958dc4fb9645990e80c0548c355, type: 3}
 --- !u!1 &5104223202356791307
 GameObject:
   m_ObjectHideFlags: 0
