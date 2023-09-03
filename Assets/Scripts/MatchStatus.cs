@@ -8,7 +8,16 @@ using UnityEngine;
 
 public class MatchStatus : MonoBehaviourPunCallbacks
 {
-    
+    public GameObject CoinPrefab;
+
+    void Start()
+    {
+        if (PhotonNetwork.IsMasterClient)
+            for (int i = -7; i < 9; i++)
+            {
+                PhotonNetwork.Instantiate(CoinPrefab.name, new Vector3(i - 0.5f, 3.5f, 0f), Quaternion.identity);
+            }
+    }
     public void GetWinner()
     {
         List<GameObject> players = GameObject.FindGameObjectsWithTag("Player").ToList();
@@ -19,7 +28,6 @@ public class MatchStatus : MonoBehaviourPunCallbacks
 
             UI ui = GameObject.FindGameObjectWithTag("PUI").GetComponent<UI>();
             int coins = winner.GetComponent<PlayerManager>().coinCounter;
-            Debug.Log(coins);
             ui.ShowWindow($"Победил Игрок:{winner.GetPhotonView().Owner} с общей суммой монет: {coins}");
         }
     }
